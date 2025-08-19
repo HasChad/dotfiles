@@ -1,0 +1,17 @@
+[[language]]
+name="rust"
+[language.config]
+checkOnSave = {command = "clippy"}
+cargo = {allFeatures = true}
+procMacro = {enable = true }
+auto-format = tru
+
+roots = [
+  "Cargo.toml",
+  "Cargo.lock"
+]
+
+[language-server.rust-analyzer.config.cargo]
+features = "all"
+
+
