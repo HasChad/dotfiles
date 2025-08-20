@@ -1,0 +1,138 @@
+# ENCOM
+# Almost monochromatic theme inspired by Encom OS from Tron: Legacy
+# author: @kverb
+
+# Syntax highlighting
+# -------------------
+"attribute" = { fg = "tertiary", modifiers = ["italic"] }
+"keyword" = { fg = "primary3" }
+"keyword.control.conditional" = { fg = "primary3" }
+"keyword.directive" = { fg = "red" }
+"namespace" = { fg = "primary1", modifiers = ["italic"] }
+"punctuation" = { fg = "primary3" }
+"punctuation.delimiter" = { fg = "primary3" }
+"operator" = { fg = "primary2" }
+"special" = { fg = "tertiary" }
+"variable" = { fg = "primary1" }
+"variable.builtin" = { fg = "btertiary" }
+"variable.parameter" = { fg = "primary1" }
+"variable.other.member" = { fg = "primary1" }
+"type" = { fg = "secondary", modifiers = ["italic"] }
+"type.builtin" = { fg = "red", modifiers = ["italic"]}
+"type.enum.variant" = { fg = "red" }
+"constructor" = { fg = "primary2" }
+"function" = { fg = "primary2" }
+"function.macro" = { fg = "btertiary" }
+"function.builtin" = { fg = "primary3" }
+"function.method" = { fg = "secondary" }
+"tag" = { fg = "primary1" }
+"comment" = { fg = "primary4", modifiers = ["italic"] }
+"string" = { fg = "primary3" }
+"string.regexp" = { fg = "tertiary" }
+"string.special" = { fg = "btertiary" }
+"constant" = { fg = "primary1" }
+"constant.builtin" = { fg = "primary2" }
+"constant.numeric" = { fg = "primary2" }
+"constant.character.escape" = { fg = "tertiary" }
+"label" = { fg = "primary2" }
+
+"markup.heading" = { fg = "secondary", modifiers = ["italic"] }
+"markup.list" = { fg = "primary3" }
+"markup.link" = { fg = "secondary" }
+"markup.link.url" = { fg = "tertiary" }
+"markup.raw" = { fg = "primary2", bg = "bg2" }
+"markup.quote" = { fg = "primary2", bg = "bg2" }
+
+"diff.plus" = { fg = "secondary" }
+"diff.minus" = { fg = "red" }
+"diff.delta" = { fg = "bsecondary" }
+
+# User Interface
+# --------------
+"ui.background" = { bg = "bg", fg = "primary1" }
+"ui.background.separator" = { fg = "secondary" }
+
+"ui.linenr" = { fg = "primary4", bg = "bg" }
+"ui.linenr.selected" = { fg = "primary1" }
+
+"ui.statusline" = { fg = "primary", bg = "bg2" }
+"ui.statusline.inactive" = { fg = "primary1", bg = "bg2" }
+"ui.statusline.normal" = { fg = "bg", bg = "tertiary" }
+"ui.statusline.insert" = { fg = "tertiary", bg = "bg" }
+"ui.statusline.select" = { fg = "bg", bg = "red" }
+"ui.statusline.separator" = { fg = "❭" }
+
+"ui.popup" = { bg = "bg2", fg = "primary1" }
+"ui.popup.info" = { bg = "bg", fg = "primary1" }
+"ui.window" = { fg = "primary2", bg = "bg2" }
+"ui.help" = { bg = "bg", fg = "primary3" }
+
+"ui.bufferline" = { fg = "bg" , bg = "primary3" }
+# "ui.bufferline.active" = {}
+# "ui.bufferline.background" = {}
+
+"ui.text" = { fg = "primary1" }
+"ui.text.inactive" = { fg = "primary3"}
+"ui.text.directory" = { fg = "secondary", bg="bg2" }
+"ui.text.info" = { fg = "primary1" }
+"ui.text.focus" = { fg = "tertiary" }
+
+"ui.virtual.ruler" = { bg = "bg3" }
+"ui.virtual.indent-guide" = { fg = "primary4" }
+"ui.virtual.inlay-hint" = { fg = "primary3" }
+# "ui.virtual.jump-label" = {}
+"ui.virtual.whitespace" = { fg = "whitespace" }
+"ui.virtual.wrap" = { fg = "softwrap" }
+
+"ui.selection" = { bg = "bg2" }
+"ui.selection.primary" = { bg = "bg2" }
+
+"ui.cursor" = { fg = "bg1", bg = "primary1" }
+"ui.cursor.insert" = { fg = "primary1" }
+"ui.cursor.select" = { fg = "red" }
+"ui.cursor.match" = { fg = "primary2", modifiers = ["bold", "underlined"] }
+"ui.cursor.primary" = { fg = "bg1", bg = "primary3" }
+"ui.cursor.primary.normal" = { fg = "bg1", bg = "primary3" }
+"ui.cursor.primary.insert" = { fg = "bg1", bg = "btertiary" }
+"ui.cursor.primary.select" = { fg = "bg1", bg = "red" }
+
+"ui.cursorline.primary" = { fg = "primary1", bg = "bg3" }
+
+"ui.highlight" = { fg = "bsecondary", bg = "bg1" }
+
+"ui.menu" = { fg = "primary1", bg = "bg2" }
+"ui.menu.selected" = { fg = "primary1", bg = "primary4" }
+"ui.menu.scroll" = { fg = "primary3", bg = "bg2" }
+
+"diagnostic" = { modifiers = ["underlined"] }
+
+"warning" = { fg = "warn" }
+"error" = { fg = "err" }
+"info" = { fg = "secondary" }
+"hint" = { fg = "bsecondary" }
+
+[palette]
+bg1 = "#000000"
+bg2 = "#1b3538"
+bg3 = "#081719"
+
+# primary variants are mostly for foreground elements
+primary1 = "#b0e0e6"
+primary2 = "#75acb3"
+primary3 = "#457980"
+primary4 = "#21474c"
+
+secondary = "#7c92df"
+bsecondary = "#a5b4e9"
+
+tertiary = "#29825f"
+btertiary = "#35a97b"
+
+red = "#a33333"
+
+err = "#ff0000"
+warn = "#ffbf00"
+hint = "#0087ff"
+
+whitespace = "#3e4e51"
+
