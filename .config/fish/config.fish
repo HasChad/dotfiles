@@ -130,3 +130,6 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 # Game aliases
 alias ironwail="/mnt/gigadisk/Ironwail/ironwail-0.8.0-linux/ironwail -basedir /mnt/gigadisk/Ironwail/"
 alias ase="/mnt/gigadisk/SteamLibrary/steamapps/common/Aseprite/aseprite"
+
+zoxide init --cmd cd fish | source
+alias cdd="cd -"

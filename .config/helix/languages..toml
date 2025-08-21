@@ -1,10 +1,11 @@
 [[language]]
 name="rust"
+
 [language.config]
 checkOnSave = {command = "clippy"}
 cargo = {allFeatures = true}
 procMacro = {enable = true }
-auto-format = tru
+auto-format = true
 
 roots = [
   "Cargo.toml",
