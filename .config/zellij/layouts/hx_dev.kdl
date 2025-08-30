@@ -1,0 +1,21 @@
+layout {
+    pane size=1 borderless=true {
+        plugin location="zjstatus"
+    }
+
+    pane split_direction="vertical" {
+        pane edit="." {
+            size "70%"
+            borderless true
+        }
+        pane {
+            size "30%"
+        }
+    }
+
+    pane size=1 borderless=true {
+        plugin location="status-bar" {
+            classic true
+        }
+    }
+}
