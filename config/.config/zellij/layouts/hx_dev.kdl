@@ -12,10 +12,4 @@ layout {
             size "30%"
         }
     }
-
-    pane size=1 borderless=true {
-        plugin location="status-bar" {
-            classic true
-        }
-    }
 }
