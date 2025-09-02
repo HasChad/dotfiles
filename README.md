@@ -8,3 +8,8 @@ $ cd dotfiles
 $ chmod +x install.sh
 $ ./install.sh
 ```
+
+## AppImage Apps
+- [krita](https://krita.org/en/)
+- [blockbench](https://www.blockbench.net/)
+- [marktext](https://github.com/marktext/marktext)

@@ -22,7 +22,6 @@ kate
 kdenlive
 audacity
 blender
-krita
 marksman
 thunderbird
 qbittorrent
