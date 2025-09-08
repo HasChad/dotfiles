@@ -1,0 +1,10 @@
+inherits = "rose_pine"
+
+# SYNTAX
+
+# UI
+
+[palette]
+
+white = "#F8F9FA"
+base = "#000000"
