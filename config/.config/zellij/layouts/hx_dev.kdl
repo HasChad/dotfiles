@@ -5,11 +5,11 @@ layout {
 
     pane split_direction="vertical" {
         pane edit="." {
-            size "70%"
+            size "60%"
             borderless true
         }
         pane {
-            size "30%"
+            size "40%"
         }
     }
 }

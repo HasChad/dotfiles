@@ -1,0 +1,15 @@
+inherits = "rose_pine"
+
+# SYNTAX
+
+# UI
+"ui.cursor"                  = { fg = "white", modifiers = ["reversed"] }
+"ui.cursor.primary"          = { fg = "white", modifiers = ["reversed", "bold"] }
+
+"ui.statusline.insert"       = { modifiers = ["reversed", "bold"] }
+"ui.statusline.select"       = { modifiers = ["reversed", "bold"] }
+
+[palette]
+
+white = "#F8F9FA"
+base = "#000000"
