@@ -1,0 +1,32 @@
+# SHADER
+# custom-shader = shaders/cursor_trail.glsl
+# custom-shader = shaders/cursor_blaze.glsl
+# custom-shader = shaders/cursor_frozen.glsl
+custom-shader = shaders/cursor_smear.glsl
+
+# WINDOW
+window-width = 100
+window-height = 25
+
+# FONTS
+font-size = 11
+
+font-family = Iosevka
+
+font-style = Medium Extended
+font-style-bold = Bold Extended
+font-style-italic = Extended Italic
+font-style-bold-italic = Bold Extended Italic
+
+# fallback font
+font-family = JetBrains Mono
+
+# BACKGROUND
+background = #000000
+background-opacity = 0.9
+background-opacity-cells = true
+background-blur = 0
+
+# CURSOR
+shell-integration-features = no-cursor
+cursor-style = block
