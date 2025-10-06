@@ -127,9 +127,19 @@ alias jctl="journalctl -p 3 -xb"
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
+# Cmake build shortcut
+function cmake-run
+    set exe_name (basename $PWD)
+    cmake -B build && cmake --build build && ./build/bin/$exe_name
+end
+
+# Helix commands
+alias helix-binds="bat ~/dotfiles/config/.config/helix/helix-keybinds.md"
+
 # Game aliases
 alias ironwail="/mnt/gigadisk/Ironwail/ironwail-0.8.0-linux/ironwail -basedir /mnt/gigadisk/Ironwail/"
 alias ase="/mnt/gigadisk/SteamLibrary/steamapps/common/Aseprite/aseprite"
 
+# Zoxide setup
 zoxide init --cmd cd fish | source
 alias cdd="cd -"
