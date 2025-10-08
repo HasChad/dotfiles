@@ -143,3 +143,4 @@ alias ase="/mnt/gigadisk/SteamLibrary/steamapps/common/Aseprite/aseprite"
 # Zoxide setup
 zoxide init --cmd cd fish | source
 alias cdd="cd -"
+starship init fish | source

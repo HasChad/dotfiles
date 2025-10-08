@@ -5,14 +5,12 @@ fish
 lazygit
 helix
 superfile
-micro
 zellij
 zoxide
-exa
+eza
 fzf
 bat
 
-raylib
 rustup
 zig
 zls
@@ -32,6 +30,7 @@ vlc-plugins-all
 steam
 gamemode
 
+inter-font
 ttc-iosevka
 ttf-fira-code
 ttf-jetbrains-mono
