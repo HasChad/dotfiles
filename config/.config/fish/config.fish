@@ -1,8 +1,15 @@
-## Set values
-## Run fastfetch as welcome message
-function fish_greeting
-    # fastfetch
+starship init fish | source
+
+function starship_transient_prompt_func
+	tput cuu1
+	starship module character
 end
+
+function prompt_newline --on-event fish_postexec
+	echo
+end
+
+alias clear "command clear; commandline -f clear-screen"
 
 # Format man pages
 set -x MANROFFOPT -c
@@ -72,18 +79,6 @@ function backup --argument filename
     cp $filename $filename.bak
 end
 
-# Copy DIR1 DIR2
-function copy
-    set count (count $argv | tr -d \n)
-    if test "$count" = 2; and test -d "$argv[1]"
-        set from (echo $argv[1] | trim-right /)
-        set to (echo $argv[2])
-        command cp -r $from $to
-    else
-        command cp $argv
-    end
-end
-
 ## Aliases
 # Replace ls with eza
 alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
@@ -100,13 +95,6 @@ alias untar='tar -zxvf '
 alias wget='wget -c '
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -114,18 +102,12 @@ alias hw='hwinfo --short' # Hardware Info
 alias big="expac -H M '%m\t%n' | sort -h | nl" # Sort installed packages according to size in MB
 alias gitpkg='pacman -Q | grep -i "\-git" | wc -l' # List amount of -git packages
 alias update='sudo pacman -Syu'
+alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
+alias jctl="journalctl -p 3 -xb"
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 # Get fastest mirrors
 alias mirror="sudo cachyos-rate-mirrors"
-
-# Cleanup orphaned packages
-alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
-
-# Get the error messages from journalctl
-alias jctl="journalctl -p 3 -xb"
-
-# Recent installed packages
-alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 # Cmake build shortcut
 function cmake-run
@@ -143,4 +125,4 @@ alias ase="/mnt/gigadisk/SteamLibrary/steamapps/common/Aseprite/aseprite"
 # Zoxide setup
 zoxide init --cmd cd fish | source
 alias cdd="cd -"
-starship init fish | source
+

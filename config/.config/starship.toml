@@ -11,13 +11,15 @@ $git_metrics\
 [](color_bg4)\
 $fill\
 $cmd_duration $jobs\
-[ ](color_bg1)\
+[](color_bg1)\
 $rust\
 $cmake\
 $zig\
 $cpp\
 $line_break\
 $character"""
+
+add_newline = false
 
 palette = 'rose_pine'
 
@@ -30,9 +32,6 @@ color_bg4 = '#56526e'
 color_red = '#eb6f92'
 color_gold = '#f6c177'
 
-[line_break]
-disabled = false
-
 [character]
 disabled = false
 success_symbol = '[ᗙ](bold fg:color_fg)'
@@ -43,7 +42,7 @@ disabled = false
 style = "bg:color_bg1 fg:color_fg"
 
 [os.symbols]
-CachyOS = "󰣇"
+CachyOS = "💀"
 
 [username]
 show_always = true
@@ -58,7 +57,7 @@ truncation_length = 3
 truncation_symbol = "…/"
 
 [git_branch]
-symbol = ""
+symbol = "𖦥"
 style = "fg:color_fg bg:color_bg3"
 format = '[ $symbol $branch ]($style)'
 
@@ -71,6 +70,10 @@ disabled = false
 added_style = "fg:color_gold bold bg:color_bg4"
 deleted_style = "fg:color_red bold bg:color_bg4"
 format = '[[([+$added]($added_style) )([-$deleted]($deleted_style) )](bg:color_bg4)]($style)'
+
+[cmd_duration]
+style = "fg:color_gold"
+format = '[$duration]($style)'
 
 [fill]
 symbol = " "

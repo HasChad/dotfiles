@@ -1,0 +1,12 @@
+inherits = "gruvbox_dark_hard"
+
+# SYNTAX
+
+# UI
+
+[palette]
+bg0 = "#050606"
+bg1 = "#211f1e"
+bg2 = "#35302d"
+bg3 = "#4a433d"
+bg4 = "#60564d"

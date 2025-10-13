@@ -27,6 +27,7 @@ skip-levels = 0
 
 [editor.lsp]
 display-messages = true
+auto-signature-help = true
 
 [editor.statusline]
 left = ["mode", "spinner", "version-control"]
@@ -53,3 +54,5 @@ A-q = ":buffer-close"
 w = ":write"
 q = ":quit"
 
+[keys.insert]
+C-c = "signature_help"
