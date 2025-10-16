@@ -5,10 +5,12 @@ layout {
 
     pane split_direction="vertical" {
         pane edit="." {
+            focus true
             size "60%"
             borderless true
         }
         pane {
+            name "Console"
             size "40%"
         }
     }

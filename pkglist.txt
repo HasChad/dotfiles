@@ -1,5 +1,4 @@
 kitty
-ghostty
 btop
 fish
 lazygit

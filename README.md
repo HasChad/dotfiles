@@ -10,6 +10,6 @@ $ ./install.sh
 ```
 
 ## AppImage Apps
-- [krita](https://krita.org/en/)
-- [blockbench](https://www.blockbench.net/)
-- [marktext](https://github.com/marktext/marktext)
+- [go-appimage](https://github.com/probonopd/go-appimage)
+- [krita](https://krita.org/en)
+- [blockbench](https://www.blockbench.net)
