@@ -40,6 +40,7 @@ workspace-diagnostics = ["warning", "error"]
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
 C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
+C-y = ":sh zellij run -n Yazi -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- bash ~/.config/helix/yazi-picker.sh open %{buffer_name}"
 # move/copy line below/above
 "A-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
 "A-k" = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
@@ -51,6 +52,7 @@ L = "goto_next_buffer"
 A-q = ":buffer-close"
 
 [keys.normal.space]
+f = ":new"
 w = ":write"
 q = ":quit"
 

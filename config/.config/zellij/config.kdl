@@ -364,4 +364,4 @@ ui {
 theme "catppuccin-macchiato"
 scrollback_editor "/usr/bin/helix"
 show_startup_tips false
-
+scroll_buffer_size 500

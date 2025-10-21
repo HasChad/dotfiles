@@ -105,6 +105,7 @@ alias update='sudo pacman -Syu'
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
 alias jctl="journalctl -p 3 -xb"
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 # Get fastest mirrors
 alias mirror="sudo cachyos-rate-mirrors"
