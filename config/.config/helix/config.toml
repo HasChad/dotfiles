@@ -52,7 +52,6 @@ L = "goto_next_buffer"
 A-q = ":buffer-close"
 
 [keys.normal.space]
-f = ":new"
 w = ":write"
 q = ":quit"
 

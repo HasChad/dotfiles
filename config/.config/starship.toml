@@ -40,7 +40,7 @@ truncation_symbol = "**/"
 truncate_to_repo = false
 
 [git_branch]
-symbol = "𖦥"
+symbol = ""
 style = "fg:color_pine"
 format = '[> $symbol $branch]($style)'
 
