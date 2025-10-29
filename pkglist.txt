@@ -1,6 +1,7 @@
 kitty
-btop
+foot
 fish
+btop
 lazygit
 helix
 superfile
