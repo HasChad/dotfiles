@@ -5,13 +5,17 @@ btop
 lazygit
 helix
 superfile
+yazi
 zellij
 zoxide
 eza
 fzf
 bat
+stow
+git
 
 rustup
+cmake
 zig
 zls
 
@@ -23,9 +27,15 @@ audacity
 blender
 marksman
 thunderbird
+teamspeak3
 qbittorrent
+vesktop
 vlc
 vlc-plugins-all
+strawberry
+bottles
+libreoffice-fresh
+gparted
 
 steam
 gamemode
@@ -34,3 +44,4 @@ inter-font
 ttc-iosevka
 ttf-fira-code
 ttf-jetbrains-mono
+otf-monaspace
