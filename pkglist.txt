@@ -8,6 +8,7 @@ superfile
 yazi
 zellij
 zoxide
+starship
 eza
 fzf
 bat
@@ -35,7 +36,7 @@ vlc-plugins-all
 strawberry
 bottles
 libreoffice-fresh
-gparted
+gnome-disk-utility
 
 steam
 gamemode
