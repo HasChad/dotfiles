@@ -1,6 +1,14 @@
 # Dotfiles
 This repo contains the dotfiles for my system
 
+## What Does it Do?
+1. Update system
+2. Install packages from official repos using pkglist.txt
+3. Install paru if not already installed
+4. Install packages from AUR using aurlist.txt
+5. Install rust stable toolchain if not already installed
+6. Stow dotfiles
+
 ## Installation
 ```sh
 git clone https://github.com/HasChad/dotfiles ~/dotfiles
@@ -57,6 +65,8 @@ cd your-repo
 git remote set-url origin git@github.com:username/repo.git
 ```
 
+## Rust Setup
+rustup default stable
 
 ## Misc
 - For good fan control ``nbfc-linux`` is a good option. "Acer Nitro AN515-51" config is good for now

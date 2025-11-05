@@ -34,7 +34,6 @@ vesktop
 vlc
 vlc-plugins-all
 strawberry
-bottles
 libreoffice-fresh
 gnome-disk-utility
 

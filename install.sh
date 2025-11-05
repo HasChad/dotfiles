@@ -120,6 +120,24 @@ else
     print_warning "aurlist.txt not found, skipping AUR packages"
 fi
 
+# Setup Rust toolchain
+if ! command -v rustc &>/dev/null; then
+    print_header "Setting up Rust toolchain"
+
+    if command -v rustup &>/dev/null; then
+        echo "rustup found, installing stable toolchain..."
+        if ! rustup default stable; then
+            print_error "Failed to install Rust stable toolchain"
+        fi
+    else
+        print_warning "rustup not found. Install it first with: sudo pacman -S rustup"
+        confirm_action "Continue without Rust?"
+    fi
+else
+    echo
+    echo "Rust is already installed, skipping..."
+fi
+
 ## STOW
 # Apply dotfiles with stow
 print_header "Applying dotfiles configuration"
