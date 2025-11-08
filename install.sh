@@ -126,8 +126,13 @@ if ! command -v rustc &>/dev/null; then
 
     if command -v rustup &>/dev/null; then
         echo "rustup found, installing stable toolchain..."
+
         if ! rustup default stable; then
             print_error "Failed to install Rust stable toolchain"
+        fi
+
+        if ! rustup component add rust-analyzer; then
+            print_error "Failed to install rust-analyzer"
         fi
     else
         print_warning "rustup not found. Install it first with: sudo pacman -S rustup"

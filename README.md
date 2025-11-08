@@ -24,38 +24,38 @@ $ ./install.sh
 
 
 ## Github SSH Key
-**Generate an SSH key**
+**1. Generate an SSH key**
 ```sh
-ssh-keygen -t ed25519 -C "your_email@example.com"
+$ ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 When prompted, you can just hit Enter to save it to the default location (~/.ssh/id_ed25519).  
 Set a passphrase if you want extra security, or leave it blank
 
-**Start the SSH agent and add your key**
+**2. Start the SSH agent and add your key**
 ```sh
 $ eval "$(ssh-agent -s)"
 $ ssh-add ~/.ssh/id_ed25519
 ```
 
-**Copy your public key**
+**3. Copy your public key**
 ```sh
 $ cat ~/.ssh/id_ed25519.pub
 ```
 Copy the entire output
 
-**Add the key to GitHub**
+**4. Add the key to GitHub**
 1. Go to GitHub.com → Settings → SSH and GPG keys
 2. Click "New SSH key"
 3. Paste your public key
 4. Give it a title
 5. Click "Add SSH key"
 
-**Test the connection**
+**5. Test the connection**
 ```sh
 $ ssh -T git@github.com
 ```
 
-**Use SSH URLs for your repos**
+**6. Use SSH URLs for your repos**
 When cloning, use the SSH URL format:
 ```sh
 $ git clone git@github.com:username/repo.git

@@ -15,6 +15,7 @@ bat
 stow
 git
 
+lldb
 rustup
 cmake
 zig
@@ -36,6 +37,11 @@ vlc-plugins-all
 strawberry
 libreoffice-fresh
 gnome-disk-utility
+
+easyeffects
+calf
+zam-plugins-lv2
+lsp-plugins-lv2
 
 steam
 gamemode
