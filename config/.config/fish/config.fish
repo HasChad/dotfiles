@@ -1,12 +1,12 @@
 starship init fish | source
 
 function starship_transient_prompt_func
-	tput cuu1
-	starship module character
+    tput cuu1
+    starship module character
 end
 
 function prompt_newline --on-event fish_postexec
-	echo
+    echo
 end
 
 alias clear "command clear; commandline -f clear-screen"
@@ -88,7 +88,6 @@ alias lt='eza -aT --color=always --group-directories-first --icons' # tree listi
 alias l.="eza -a | grep -e '^\.'" # show only dotfiles
 
 # Common use
-alias grubup="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias fixpacman="sudo rm /var/lib/pacman/db.lck"
 alias tarnow='tar -acf '
 alias untar='tar -zxvf '
@@ -99,7 +98,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias hw='hwinfo --short' # Hardware Info
-alias big="expac -H M '%m\t%n' | sort -h | nl" # Sort installed packages according to size in MB
+alias big="expac -H M '%m\t%n' | sort -h | nl" # Sort installed packages according to size
 alias gitpkg='pacman -Q | grep -i "\-git" | wc -l' # List amount of -git packages
 alias update='sudo pacman -Syu'
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
@@ -124,6 +123,5 @@ alias ironwail="/mnt/gigadisk/Ironwail/ironwail-0.8.0-linux/ironwail -basedir /m
 alias ase="/mnt/gigadisk/SteamLibrary/steamapps/common/Aseprite/aseprite"
 
 # Zoxide setup
-zoxide init --cmd cd fish | source
+zoxide init --cmd zd fish | source
 alias cdd="cd -"
-

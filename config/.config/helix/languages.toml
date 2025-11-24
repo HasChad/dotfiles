@@ -8,3 +8,16 @@ block-comment-tokens = { start = "/*", end = "*/" }
 language-servers = [ "clangd" ]
 auto-format = true
 indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "typst"
+auto-format = true
+formatter.command = "typstyle"
+
+
+[language-server.tinymist]
+command = "tinymist"
+config.exportPdf = "onSave"
+config.preview.background.enabled = true
+config.preview.background.args = [
+  "--data-plane-host=127.0.0.1:0", "--invert-colors=never", "--open"]

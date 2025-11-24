@@ -40,6 +40,7 @@ s = symbol picker
 S = symbol picker in project
 d = diagnostic picker
 r = rename symbol
+k = lsp hover
 / = global search
 
 ## Ctrl

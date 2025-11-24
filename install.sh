@@ -144,44 +144,19 @@ else
 fi
 
 ## STOW
-# Apply dotfiles with stow
 print_header "Applying dotfiles configuration"
-
-# Check if dotfiles directory exists
-if [[ ! -d "$DOTFILES_DIR" ]]; then
-    print_error "Dotfiles directory not found: $DOTFILES_DIR"
-fi
 
 # Check if stow target exists
 if [[ ! -d "$DOTFILES_DIR/$STOW_TARGETS" ]]; then
     print_error "Stow target directory not found: $DOTFILES_DIR/$STOW_TARGETS"
 fi
 
-# Change to dotfiles directory
-cd "$DOTFILES_DIR" || print_error "Failed to change to dotfiles directory"
-
 # Convert space separated targets to array
 IFS=' ,' read -ra TARGETS <<< "$STOW_TARGETS"
 
-# Check for potential conflicts (dry run)
-echo "Checking for conflicts..."
-conflicts_found=false
-for target in "${TARGETS[@]}"; do
-    target="${target%/}"
-    if ! stow -n "$target" 2>/dev/null; then
-        conflicts_found=true
-        echo "  Conflicts detected for: $target"
-    fi
-done
-
-if $conflicts_found; then
-    print_warning "Potential conflicts detected with existing files."
-    confirm_action "Stow may overwrite existing configuration files."
-else
-    echo "No stow conflicts detected."
-fi
-
 # Apply dotfiles
+confirm_action "Stow may overwrite existing configuration files. Continue?"
+
 echo "Applying stow targets: ${TARGETS[*]}"
 for target in "${TARGETS[@]}"; do
     target="${target%/}"

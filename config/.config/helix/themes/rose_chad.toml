@@ -3,13 +3,16 @@ inherits = "rose_pine"
 # SYNTAX
 
 # UI
+"ui.background" ={}
 "ui.cursor"                  = { fg = "white", modifiers = ["reversed"] }
 "ui.cursor.primary"          = { fg = "white", modifiers = ["reversed", "bold"] }
 
-"ui.statusline.insert"       = { modifiers = ["reversed", "bold"] }
-"ui.statusline.select"       = { modifiers = ["reversed", "bold"] }
+"ui.statusline.normal" = { fg = "base", bg = "rose", modifiers = ["reversed", "bold"] }
+"ui.statusline.insert" = { fg = "foam", bg = "base", modifiers = ["reversed", "bold"] }
+"ui.statusline.select" = { fg = "iris", bg = "base", modifiers = ["reversed", "bold"] }
+
+"comment" = { fg = "highlight_high", modifiers = ["italic"] }
 
 [palette]
 
 white = "#F8F9FA"
-base = "#000000"

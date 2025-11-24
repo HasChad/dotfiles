@@ -20,14 +20,16 @@ rustup
 cmake
 zig
 zls
+marksman
+markdown-oxide
+
+kate
+kdenlive
 
 zed
 godot
-kate
-kdenlive
 audacity
 blender
-marksman
 thunderbird
 teamspeak3
 qbittorrent

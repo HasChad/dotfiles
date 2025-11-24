@@ -44,7 +44,7 @@ $ cat ~/.ssh/id_ed25519.pub
 Copy the entire output
 
 **4. Add the key to GitHub**
-1. Go to GitHub.com → Settings → SSH and GPG keys
+1. Go to GitHub.com -> Settings -> SSH and GPG keys
 2. Click "New SSH key"
 3. Paste your public key
 4. Give it a title
@@ -67,4 +67,10 @@ $ git remote set-url origin git@github.com:username/repo.git
 ```
 
 ## Misc
-For good laptop fan control ``nbfc-linux`` is a good option. "Acer Nitro AN515-51" config is good for now
+For good laptop fan control ``nbfc-linux`` is a good option.  
+"Acer Nitro AN515-51" config is good for now
+
+cargo install cargo-edit
+edit install.sh
+maybe remove millenium since it fails the first time
+
