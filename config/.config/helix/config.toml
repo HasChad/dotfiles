@@ -3,7 +3,7 @@ theme = "rose_chad"
 [editor]
 line-number = "relative"
 cursorline = true
-bufferline = "multiple"
+bufferline = "always"
 color-modes = true
 text-width = 100
 auto-format = true
