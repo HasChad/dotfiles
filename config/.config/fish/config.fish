@@ -118,6 +118,9 @@ end
 # Helix commands
 alias helix-binds="bat ~/dotfiles/config/.config/helix/helix-keybinds.md"
 
+# Zig master
+alias zigm="~/.zigm/zigm"
+
 # Game aliases
 alias ironwail="/mnt/gigadisk/Ironwail/ironwail-0.8.0-linux/ironwail -basedir /mnt/gigadisk/Ironwail/"
 alias ase="/mnt/gigadisk/SteamLibrary/steamapps/common/Aseprite/aseprite"

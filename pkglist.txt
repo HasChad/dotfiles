@@ -1,6 +1,7 @@
 kitty
 foot
 fish
+starship
 btop
 lazygit
 helix
@@ -8,20 +9,18 @@ superfile
 yazi
 zellij
 zoxide
-starship
 eza
 fzf
 bat
 stow
 git
+fastfetch
 
 lldb
 rustup
 cmake
 zig
 zls
-marksman
-markdown-oxide
 
 kate
 kdenlive
@@ -30,6 +29,7 @@ zed
 godot
 audacity
 blender
+
 thunderbird
 teamspeak3
 qbittorrent
