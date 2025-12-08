@@ -1,5 +1,4 @@
-kitty
-foot
+alacritty
 fish
 starship
 btop
@@ -31,7 +30,6 @@ audacity
 blender
 
 thunderbird
-teamspeak3
 qbittorrent
 vesktop
 vlc
