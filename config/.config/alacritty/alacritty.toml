@@ -1,5 +1,6 @@
 [general]
-import = ["rose-pine.toml"]
+# import = ["rose-pine.toml"]
+import = ["kitty.toml"]
 
 [window]
 dimensions = { columns = 100, lines = 25 }
@@ -13,7 +14,10 @@ multiplier = 3
 
 [font]
 size = 11
-normal = { family = "Fira Code", style = "Medium"}
+normal = { family = "Monaspace Krypton", style = "Medium"}
+bold = { family = "Monaspace Krypton", style = "Bold"}
+italic = { family = "Monaspace Krypton", style = "Medium Italic"}
+bold_italic = { family = "Monaspace Krypton", style = "Bold Italic"}
 
 [colors.primary]
 background = "#000000"

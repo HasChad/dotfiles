@@ -1,6 +1,4 @@
 atlauncher
-millennium
 zen-browser-bin
-brave-bin
 input-remapper-git
 nbfc-linux

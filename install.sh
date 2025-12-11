@@ -92,7 +92,7 @@ fi
 
 # Install paru
 if ! command -v paru &>/dev/null; then
-    print_header "Installing paru AUR helper"
+    print_header "Installing Paru"
     
     if ! git clone https://aur.archlinux.org/paru.git /tmp/paru; then
         print_error "Failed to clone paru repository"
@@ -174,8 +174,9 @@ echo "Summary:"
 echo "  ✓ System updated"
 echo "  ✓ Base tools installed"
 echo "  ✓ $(count_packages pkglist.txt) official packages installed"
-echo "  ✓ paru AUR helper ready"
+echo "  ✓ Paru ready"
 echo "  ✓ $(count_packages aurlist.txt) AUR packages installed"
+echo "  ✓ Rust and rust-analyzer installed"
 echo "  ✓ Dotfiles applied"
 echo
 echo -e "${YELLOW}Consider rebooting to ensure all changes take effect.${NC}"
