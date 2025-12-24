@@ -4,7 +4,7 @@ mostUsedPresets=microphone
 plugins=rnnoise#0,gate#0,autogain#0,limiter#0,stereo_tools#0
 usedPresets=microphone:2
 visiblePage=pluginsPage
-visiblePlugin=rnnoise#0
+visiblePlugin=limiter#0
 
 [StreamOutputs]
 outputDevice=alsa_output.pci-0000_00_1f.3.analog-stereo

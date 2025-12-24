@@ -30,7 +30,7 @@ display-messages = true
 auto-signature-help = true
 
 [editor.statusline]
-left = ["mode", "spinner", "version-control"]
+left = ["mode", "spinner", "spacer", "version-control"]
 center = ["file-name"]
 right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
 separator = "|"

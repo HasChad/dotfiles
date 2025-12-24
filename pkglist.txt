@@ -47,7 +47,4 @@ steam
 gamemode
 
 inter-font
-ttc-iosevka
-ttf-fira-code
-ttf-jetbrains-mono
 otf-monaspace
