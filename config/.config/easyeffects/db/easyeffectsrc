@@ -10,5 +10,7 @@ visiblePlugin=limiter#0
 outputDevice=alsa_output.pci-0000_00_1f.3.analog-stereo
 
 [Window]
+height=503
 lastLoadedInputPreset=microphone
 visiblePage=inputPage
+width=946

@@ -38,6 +38,7 @@ strawberry
 libreoffice-fresh
 gnome-disk-utility
 
+keyd
 easyeffects
 calf
 zam-plugins-lv2

@@ -1,8 +1,0 @@
-modmap:
-  - remap:
-      CapsLock: Esc
-keymap:
-  - remap:
-      Ctrl_L:
-        remap:
-          Shift_L: CapsLock
