@@ -75,8 +75,3 @@ For good laptop fan control ``nbfc-linux`` is a good option.
 [Walls](https://github.com/dharmx/walls)  
 [Rose pine wallpapers](https://github.com/p4rfait/rose-pine-wallpapers)  
 [Awesome-hyperland](https://github.com/hyprland-community/awesome-hyprland)  
-
-cargo install cargo-edit
-edit install.sh
-maybe remove millenium since it fails the first time
-
