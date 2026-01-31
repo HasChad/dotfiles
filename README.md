@@ -70,6 +70,12 @@ $ git remote set-url origin git@github.com:username/repo.git
 For good laptop fan control ``nbfc-linux`` is a good option.  
 "Acer Nitro AN515-51" config is good for now
 
+## Useful Links
+[Rose pine palette](https://rosepinetheme.com/palette/ingredients/)  
+[Walls](https://github.com/dharmx/walls)  
+[Rose pine wallpapers](https://github.com/p4rfait/rose-pine-wallpapers)  
+[Awesome-hyperland](https://github.com/hyprland-community/awesome-hyprland)  
+
 cargo install cargo-edit
 edit install.sh
 maybe remove millenium since it fails the first time
