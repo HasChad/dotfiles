@@ -1,5 +1,4 @@
 [general]
-# import = ["rose-pine.toml"]
 import = ["kitty.toml"]
 
 [window]

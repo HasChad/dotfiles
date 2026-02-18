@@ -1,11 +1,12 @@
 inherits = "rose_pine"
 
 # SYNTAX
+"comment" = { fg = "highlight_high", modifiers = ["italic"] }
 
 # UI
-"ui.background" ={}
-"ui.cursor"                  = { fg = "white", modifiers = ["reversed"] }
-"ui.cursor.primary"          = { fg = "white", modifiers = ["reversed", "bold"] }
+"ui.background" = {}
+"ui.cursor" = { fg = "text", modifiers = ["reversed"] }
+"ui.cursor.primary" = { fg = "text", modifiers = ["reversed", "bold"] }
 
 "ui.statusline.normal" = { fg = "base", bg = "rose", modifiers = ["reversed", "bold"] }
 "ui.statusline.insert" = { fg = "foam", bg = "base", modifiers = ["reversed", "bold"] }
@@ -15,9 +16,3 @@ inherits = "rose_pine"
 "ui.bufferline.active" = { fg = "base", bg = "subtle", modifiers = ["bold"] }
 
 "ui.virtual.indent-guide" = { fg = "highlight_med" }
-
-"comment" = { fg = "highlight_high", modifiers = ["italic"] }
-
-[palette]
-
-white = "#F8F9FA"
