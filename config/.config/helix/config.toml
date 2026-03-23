@@ -11,6 +11,10 @@ auto-save = true
 rulers = [100]
 end-of-line-diagnostics = "hint"
 
+[editor.soft-wrap]
+enable = true
+wrap-indicator = ""
+
 [editor.inline-diagnostics]
 cursor-line = "warning" # Show inline diagnostics when the cursor is on the line
 # other-lines = "disable" # Don't expand diagnostics unless the cursor is on the line

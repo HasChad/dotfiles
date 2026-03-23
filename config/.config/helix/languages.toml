@@ -14,6 +14,11 @@ name = "typst"
 auto-format = true
 formatter.command = "typstyle"
 
+[[language]]
+name = "lua"
+formatter = { command = "stylua", args = [ "-" ] }
+auto-format = true
+
 [language-server.tinymist]
 command = "tinymist"
 config.exportPdf = "onSave"
