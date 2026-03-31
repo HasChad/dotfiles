@@ -18,9 +18,13 @@ $ ./install.sh
 ```
 
 ## AppImage Apps
-- [go-appimage](https://github.com/probonopd/go-appimage)
-- [krita](https://krita.org/en)
-- [blockbench](https://www.blockbench.net)
+[Gear Lever](https://github.com/mijorus/gearlever) AppImage manager
+- Krita
+- Helium
+- Blockbench
+- Friction
+- Slade
+- Trenchbroom
 
 
 ## Github SSH Key
@@ -68,7 +72,6 @@ $ git remote set-url origin git@github.com:username/repo.git
 
 ## Misc
 For good laptop fan control ``nbfc-linux`` is a good option.  
-"Acer Nitro AN515-51" config is good for now
 
 ## Useful Links
 [Rose pine palette](https://rosepinetheme.com/palette/ingredients/)  
