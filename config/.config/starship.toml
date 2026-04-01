@@ -3,8 +3,7 @@ $directory\
 $git_branch\
 $git_status\
 $git_metrics\
-$fill\
-$cmd_duration $jobs\
+$cmd_duration\
 $rust\
 $cmake\
 $zig\
@@ -18,10 +17,6 @@ palette = 'rose_pine'
 
 [palettes.rose_pine]
 color_fg = '#e0def4'
-color_bg1 = '#191724'
-color_bg2 = '#2a273f'
-color_bg3 = '#393552'
-color_bg4 = '#56526e'
 color_red = '#eb6f92'
 color_gold = '#f6c177'
 color_iris = '#c4a7e7'
@@ -34,15 +29,15 @@ error_symbol = '[>](bold fg:color_red)'
 
 [directory]
 style = "fg:color_iris"
-format = "[$path ]($style)"
+format = "[$path]($style)"
 truncation_length = 0
 truncation_symbol = "**/"
 truncate_to_repo = false
 
 [git_branch]
-symbol = ""
+symbol = ""
 style = "fg:color_pine"
-format = '[> $symbol $branch]($style)'
+format = '[ $symbol $branch]($style)'
 
 [git_status]
 style = "fg:color_fg bold"
@@ -52,37 +47,32 @@ format = '[( $all_status$ahead_behind)]($style)'
 disabled = false
 added_style = "fg:color_gold bold"
 deleted_style = "fg:color_red bold"
-format = ' \(([+$added]($added_style))/([-$deleted]($deleted_style))\)'
+format = '([ +$added]($added_style)/[-$deleted]($deleted_style))'
 
 [cmd_duration]
 style = "fg:color_gold"
-format = '[$duration]($style)'
+format = '[ 󰔚 $duration]($style)'
 
 [fill]
+style = "fg:color_fg"
 symbol = " "
-
-[jobs]
-symbol = ""
-style = "bold red"
-number_threshold = 1
-format = "[$symbol]($style)"
 
 [rust]
 symbol = ""
 style = "fg:bold red"
-format = '[ $symbol( $version) ]($style)'
+format = '[ $symbol $version]($style)'
 
 [cmake]
 symbol = ""
 style = "fg:bold blue"
-format = '[ $symbol( $version) ]($style)'
+format = '[ $symbol $version]($style)'
 
 [cpp]
 symbol = ""
 style = "fg:bold 149"
-format = '[ $symbol( $version) ]($style)'
+format = '[ $symbol $version]($style)'
 
 [zig]
 symbol = ""
 style = "fg:bold yellow"
-format = '[ $symbol( $version) ]($style)'
+format = '[ $symbol $version]($style)'
