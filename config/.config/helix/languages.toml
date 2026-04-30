@@ -10,6 +10,11 @@ auto-format = true
 indent = { tab-width = 2, unit = "  " }
 
 [[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["format", "-"] }
+auto-format = true
+
+[[language]]
 name = "typst"
 auto-format = true
 formatter.command = "typstyle"
@@ -18,6 +23,17 @@ formatter.command = "typstyle"
 name = "lua"
 formatter = { command = "stylua", args = [ "-" ] }
 auto-format = true
+
+[[language]]
+name = "slint"
+scope = "source.slint"
+auto-format = true
+injection-regex = "slint"
+file-types = ["slint"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 4, unit = "    " }
+language-servers = [ "slint-lsp" ]
 
 [language-server.tinymist]
 command = "tinymist"

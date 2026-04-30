@@ -26,9 +26,9 @@ keybinds clear-defaults=true {
     }
     tab {
         bind "left" { GoToPreviousTab; }
-        bind "down" { GoToNextTab; }
-        bind "up" { GoToPreviousTab; }
         bind "right" { GoToNextTab; }
+        bind "up" { GoToPreviousTab; }
+        bind "down" { GoToNextTab; }
         bind "1" { GoToTab 1; SwitchToMode "normal"; }
         bind "2" { GoToTab 2; SwitchToMode "normal"; }
         bind "3" { GoToTab 3; SwitchToMode "normal"; }
@@ -134,6 +134,14 @@ keybinds clear-defaults=true {
         bind "Alt down" { MoveFocus "down"; }
         bind "Alt up" { MoveFocus "up"; }
         bind "Alt right" { MoveFocusOrTab "right"; }
+        bind "Alt h" { MoveFocusOrTab "left"; }
+        bind "Alt j" { MoveFocus "down"; }
+        bind "Alt k" { MoveFocus "up"; }
+        bind "Alt l" { MoveFocusOrTab "right"; }
+
+        bind "Alt o" { MoveTab "right"; }
+        bind "Alt i" { MoveTab "left"; }
+
         bind "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt =" { Resize "Increase"; }
@@ -141,13 +149,7 @@ keybinds clear-defaults=true {
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
         bind "Ctrl l" { SwitchToMode "locked"; }
-        bind "Alt h" { MoveFocusOrTab "left"; }
-        bind "Alt i" { MoveTab "left"; }
-        bind "Alt j" { MoveFocus "down"; }
-        bind "Alt k" { MoveFocus "up"; }
-        bind "Alt l" { MoveFocusOrTab "right"; }
         bind "Alt n" { NewPane; }
-        bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
         bind "Ctrl q" { Quit; }
@@ -228,22 +230,22 @@ plugins {
     strider location="zellij:strider"
     tab-bar location="zellij:tab-bar"
     welcome-screen location="zellij:session-manager" {
-        welcome_screen true
+        welcome_screen false
     }
 
     zjstatus location="file:~/.config/zellij/zj_plugins/zjstatus.wasm" {
         // Rose Pine
-        color_fg "#908caa"
-        color_bg "#1f1d2e"
-        color_black "#191724"
-        color_red "#eb6f92"
-        color_green "#A3BE8C"
-        color_yellow "#f6c177"
-        color_blue "#81A1C1"
-        color_magenta "#c4a7e7"
-        color_cyan "#88C0D0"
-        color_white "#e0def4"
-        color_orange "#ebbcba"
+        color_fg        "#908caa"
+        color_bg        "#1f1d2e"
+        color_black     "#191724"
+        color_red       "#eb6f92"
+        color_green     "#A3BE8C"
+        color_yellow    "#f6c177"
+        color_blue      "#81A1C1"
+        color_magenta   "#c4a7e7"
+        color_cyan      "#88C0D0"
+        color_white     "#e0def4"
+        color_orange    "#ebbcba"
 
         format_left   "{mode}#[bg=$bg] {tabs}"
         format_center "{pipe_zjstatus_hints}"
@@ -290,23 +292,23 @@ plugins {
         tab_separator           "#[bg=$bg] "
 
         // indicators
-        tab_sync_indicator       " "
-        tab_fullscreen_indicator " 󰊓"
-        tab_floating_indicator   " 󰹙"
+        tab_sync_indicator       "  "
+        tab_fullscreen_indicator " 󰊓 "
+        tab_floating_indicator   " 󰹙 "
 
         command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
         command_git_branch_format      "#[fg=$blue] {stdout} "
         command_git_branch_interval    "10"
         command_git_branch_rendermode  "static"
 
-        datetime        "#[fg=$fg] {format} "
-        datetime_format "%d.%m.%Y %H:%M"
-        datetime_timezone "Europe/Istanbul"
+        datetime            "#[fg=$fg] {format}"
+        datetime_format     "%d.%m.%Y | %H:%M"
+        datetime_timezone   "Europe/Istanbul"
     }
 
     zjstatus-hints location="file:~/.config/zellij/zj_plugins/zjstatus-hints.wasm" {
         max_length "0"
-        overflow_str ""
+        overflow_str "..."
         pipe_name "zjstatus_hints"
     }
 
@@ -326,6 +328,7 @@ ui {
     }
 }
 
+pane_frames false
 theme "catppuccin-macchiato"
 scrollback_editor "/usr/bin/helix"
 show_startup_tips false

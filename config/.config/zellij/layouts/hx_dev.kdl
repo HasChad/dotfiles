@@ -1,6 +1,6 @@
 layout {
     pane size=1 borderless=true {
-        plugin location="zjstatus"
+         plugin location="zjstatus"
     }
 
     pane split_direction="vertical" {
@@ -9,6 +9,7 @@ layout {
             size "60%"
             borderless true
         }
+
         pane {
             name "Console"
             size "40%"
