@@ -248,20 +248,20 @@ plugins {
         color_orange    "#ebbcba"
 
         format_left   "{mode}#[bg=$bg] {tabs}"
-        format_center "{pipe_zjstatus_hints}"
+        // format_center "{pipe_zjstatus_hints}"
         format_right  "#[bg=$bg,fg=$fg]{session} {datetime}"
         format_space  "#[bg=$bg]"
         format_hide_on_overlength "true"
         format_precedence "crl"
 
-        pipe_zjstatus_hints_format "{output}"
+        // pipe_zjstatus_hints_format "{output}"
 
         border_enabled  "false"
         border_char     "─"
         border_format   "#[fg=#6C7086]{char}"
         border_position "top"
 
-        hide_frame_for_single_pane "true"
+        hide_frame_for_single_pane "false"
 
         mode_normal        "#[bg=$green,fg=$bg,bold] NORMAL "
         mode_locked        "#[bg=$red,fg=$bg,bold] LOCKED  "
@@ -328,7 +328,7 @@ ui {
     }
 }
 
-pane_frames false
+pane_frames true
 theme "catppuccin-macchiato"
 scrollback_editor "/usr/bin/helix"
 show_startup_tips false

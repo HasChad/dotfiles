@@ -46,11 +46,19 @@ if test -d ~/.zig
     end
 end
 
+alias zig-run "zig build run"
+
 # Add depot_tools to PATH
 if test -d ~/Applications/depot_tools
     if not contains -- ~/Applications/depot_tools $PATH
         set -p PATH ~/Applications/depot_tools
     end
+end
+
+# Cmake build shortcut
+function cmake-run
+    set exe_name (basename $PWD)
+    cmake -B build && cmake --build build && ./build/bin/$exe_name
 end
 
 ## Functions
@@ -102,35 +110,29 @@ alias lt='eza -aT --color=always --group-directories-first --icons' # tree listi
 alias l.="eza -a | grep -e '^\.'" # show only dotfiles
 
 # Common use
-alias fixpacman="sudo rm /var/lib/pacman/db.lck"
-alias tarnow='tar -acf '
-alias untar='tar -zxvf '
-alias wget='wget -c '
-alias psmem='ps auxf | sort -nr -k 4'
-alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias hw='hwinfo --short' # Hardware Info
-alias big="expac -H M '%m\t%n' | sort -h | nl" # Sort installed packages according to size
-alias gitpkg='pacman -Q | grep -i "\-git" | wc -l' # List amount of -git packages
-alias update='sudo pacman -Syu'
-alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
-alias jctl="journalctl -p 3 -xb"
-alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
-alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias mirror="sudo cachyos-rate-mirrors" # Get fastest mirrors
-
-# Cmake build shortcut
-function cmake-run
-    set exe_name (basename $PWD)
-    cmake -B build && cmake --build build && ./build/bin/$exe_name
-end
+alias fixpacman "sudo rm /var/lib/pacman/db.lck"
+alias tarnow "tar -acf "
+alias untar "tar -zxvf "
+alias wget "wget -c "
+alias psmem "ps auxf | sort -nr -k 4"
+alias psmem10 "ps auxf | sort -nr -k 4 | head -10"
+alias grep "grep --color=auto"
+alias fgrep "fgrep --color=auto"
+alias egrep "egrep --color=auto"
+alias hw "hwinfo --short" # Hardware Info
+alias big "expac -H M '%m\t%n' | sort -h | nl" # Sort installed packages according to size
+alias gitpkg "pacman -Q | grep -i "\-git" | wc -l" # List amount of -git packages
+alias update "sudo pacman -Syu"
+alias cleanup "sudo pacman -Rns (pacman -Qtdq)"
+alias jctl "journalctl -p 3 -xb"
+alias rip "expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+alias grub-update "sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias mirror "sudo cachyos-rate-mirrors" # Get fastest mirrors
 
 # Helix commands
 alias helix-binds="bat ~/dotfiles/config/.config/helix/helix-keybinds.md"
 
-# Game aliases
+# Game and app aliases
 alias ironwail="prime-run /mnt/gigadisk/Quake/Ironwail/ironwail -basedir /mnt/gigadisk/Quake/Ironwail"
 alias ase="/mnt/gigadisk/SteamLibrary/steamapps/common/Aseprite/aseprite"
 

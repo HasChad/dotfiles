@@ -1,0 +1,29 @@
+// Project tasks configuration. See https://zed.dev/docs/tasks for documentation.
+
+[
+  {
+    "label": "CMake Runner",
+    "command": "cmake-run",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "reveal_target": "dock",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true,
+    "show_command": false,
+  },
+
+  {
+    "label": "Single File G++ Runner",
+    "command": "g++ $ZED_FILE -o $ZED_DIRNAME/app && $ZED_DIRNAME/app",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "reveal_target": "dock",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true,
+    "show_command": true,
+  },
+]

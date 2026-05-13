@@ -1,0 +1,41 @@
+// Zed Settings
+// https://zed.dev/docs/configuring-zed
+
+{
+    "theme": "Catppuccin Mocha - No Italics",
+    "icon_theme": "Material Icon Theme",
+
+    "buffer_font_family": "Monaspace Krypton",
+    "buffer_line_height": "standard",
+    "buffer_font_size": 14.0,
+    "ui_font_family": ".SystemUIFont",
+    "ui_font_size": 16,
+
+    "format_on_save": "on",
+    "tab_size": 4,
+    "show_wrap_guides": true,
+    "wrap_guides": [100],
+
+    "tabs": { "file_icons": true },
+    "toolbar": {
+        "breadcrumbs": false,
+        "quick_actions": false,
+    },
+    "project_panel": {
+        "dock": "left",
+    },
+    "git_panel": {
+        "dock": "left",
+    },
+    "title_bar": {
+        "show_onboarding_banner": false,
+        "show_branch_name": false,
+        "show_project_items": false,
+    },
+
+    "disable_ai": true,
+    "telemetry": {
+        "diagnostics": false,
+        "metrics": false,
+    },
+}
