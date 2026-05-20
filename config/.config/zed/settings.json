@@ -2,7 +2,10 @@
 // https://zed.dev/docs/configuring-zed
 
 {
-    "theme": "Catppuccin Mocha - No Italics",
+    "minimap": {
+        "show": "always",
+    },
+    "theme": "GitHub Dark",
     "icon_theme": "Material Icon Theme",
 
     "buffer_font_family": "Monaspace Krypton",
@@ -11,12 +14,23 @@
     "ui_font_family": ".SystemUIFont",
     "ui_font_size": 16,
 
+    "colorize_brackets": true,
     "format_on_save": "on",
     "tab_size": 4,
     "show_wrap_guides": true,
     "wrap_guides": [100],
 
-    "tabs": { "file_icons": true },
+    "diagnostics": {
+        "inline": {
+            "enabled": true,
+            "max_severity": null,
+        },
+    },
+
+    "tabs": {
+        "file_icons": true,
+        "show_diagnostics": "all",
+    },
     "toolbar": {
         "breadcrumbs": false,
         "quick_actions": false,
@@ -28,7 +42,7 @@
         "dock": "left",
     },
     "title_bar": {
-        "show_onboarding_banner": false,
+        "show_menus": false, // change to true when they fix the titlebar
         "show_branch_name": false,
         "show_project_items": false,
     },
