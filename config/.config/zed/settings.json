@@ -2,9 +2,6 @@
 // https://zed.dev/docs/configuring-zed
 
 {
-    "minimap": {
-        "show": "always",
-    },
     "theme": "GitHub Dark",
     "icon_theme": "Material Icon Theme",
 
@@ -19,6 +16,10 @@
     "tab_size": 4,
     "show_wrap_guides": true,
     "wrap_guides": [100],
+
+    "minimap": {
+        "show": "always",
+    },
 
     "diagnostics": {
         "inline": {
