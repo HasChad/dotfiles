@@ -14,11 +14,8 @@ stow
 git
 fastfetch
 
-lldb
 rustup
 cmake
-zig
-zls
 
 kate
 kdenlive

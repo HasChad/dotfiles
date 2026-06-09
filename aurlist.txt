@@ -1,4 +1,2 @@
 atlauncher
 zen-browser-bin
-input-remapper-git
-nbfc-linux

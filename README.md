@@ -1,5 +1,5 @@
 # Dotfiles
-This repo contains the dotfiles for my system
+This repo contains the dotfiles for my arch linux based system
 
 ## What Does it Do?
 1. Update system
@@ -77,4 +77,3 @@ For good laptop fan control ``nbfc-linux`` is a good option.
 [Walls](https://github.com/dharmx/walls)  
 [Rose pine palette](https://rosepinetheme.com/palette/ingredients/)  
 [Rose pine wallpapers](https://github.com/p4rfait/rose-pine-wallpapers)  
-[Awesome-hyperland](https://github.com/hyprland-community/awesome-hyprland)  
