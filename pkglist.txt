@@ -4,7 +4,6 @@ starship
 btop
 lazygit
 helix
-superfile
 yazi
 zellij
 zoxide
@@ -39,10 +38,6 @@ libreoffice-fresh
 gnome-disk-utility
 
 keyd
-easyeffects
-calf
-zam-plugins-lv2
-lsp-plugins-lv2
 
 steam
 gamemode

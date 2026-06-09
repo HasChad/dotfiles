@@ -27,9 +27,11 @@ end)
 
 ---- ENVIRONMENT VARIABLES ---- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
-hl.env("XCURSOR_SIZE", "0")
-hl.env("HYPRCURSOR_SIZE", "24")
+-- hl.env("XCURSOR_SIZE", "0")
 hl.env("HYPRCURSOR_THEME", "rose-pine-cursor-hyprcursor")
+hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("LIBVA_DRIVER_NAME", "nvidia")
+hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 
 ---- LOOK AND FEEL ---- https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
@@ -46,7 +48,7 @@ hl.config({
 		resize_on_border = true,
 
 		-- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
-		allow_tearing = false,
+		allow_tearing = true,
 
 		layout = "dwindle",
 	},
@@ -304,6 +306,14 @@ hl.window_rule({
 --     no_anim = true,
 -- })
 -- overlayLayerRule:set_enabled(false)
+
+hl.layer_rule({
+	name = "noctalia",
+	match = { namespace = "noctalia-background-.*$" },
+	ignore_alpha = 0.5,
+	blur = true,
+	blur_popups = true,
+})
 
 -- Hyprland-run windowrule
 hl.window_rule({
