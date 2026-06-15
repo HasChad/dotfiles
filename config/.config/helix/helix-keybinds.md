@@ -58,10 +58,10 @@ r = surround replace
 d = surround delete
 
 ## Custom
-C-g = open lazygit
-S-w = write
-S-q = quit
-A-j = move line down
-A-k = move line up
-Sh-h = prev buffer
-Sh-l = next buffer
+Ctrl - g = open lazygit
+Space - w = write
+Space - q = quit
+Alt - j = move line down
+Alt - k = move line up
+Shift - h = prev buffer
+Shift - l = next buffer

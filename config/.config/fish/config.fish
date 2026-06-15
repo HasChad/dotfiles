@@ -46,8 +46,6 @@ if test -d ~/.zig
     end
 end
 
-alias zig-run "zig build run"
-
 # Add depot_tools to PATH
 if test -d ~/Applications/depot_tools
     if not contains -- ~/Applications/depot_tools $PATH
@@ -130,10 +128,14 @@ alias grub-update "sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias mirror "sudo cachyos-rate-mirrors" # Get fastest mirrors
 
 # Helix commands
-alias helix-binds="bat ~/dotfiles/config/.config/helix/helix-keybinds.md"
+alias helix-binds="bat ~/.config/helix/helix-keybinds.md"
 
-# Game and app aliases
-alias ironwail="prime-run /mnt/gigadisk/Quake/Ironwail/ironwail -basedir /mnt/gigadisk/Quake/Ironwail"
+# Ironwail shortcut
+function ironwail
+    cd /mnt/gigadisk/Quake/Ironwail/
+    prime-run ./ironwail
+end
+
 alias ase="/mnt/gigadisk/SteamLibrary/steamapps/common/Aseprite/aseprite"
 
 # Zoxide setup

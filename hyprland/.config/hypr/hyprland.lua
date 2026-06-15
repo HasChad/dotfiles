@@ -22,7 +22,7 @@ hl.on("hyprland.start", function()
 	-- hl.exec_cmd("dunst")
 	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
-	hl.exec_cmd("qs -c noctalia-shell")
+	hl.exec_cmd("noctalia")
 end)
 
 ---- ENVIRONMENT VARIABLES ---- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
@@ -126,6 +126,16 @@ hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" 
 --     border_size = 0,
 --     rounding    = 0,
 -- })
+
+hl.workspace_rule({ workspace = "1", monitor = "", persistent = true })
+hl.workspace_rule({ workspace = "2", monitor = "", persistent = true })
+hl.workspace_rule({ workspace = "3", monitor = "", persistent = true })
+hl.workspace_rule({ workspace = "4", monitor = "", persistent = true })
+hl.workspace_rule({ workspace = "5", monitor = "", persistent = true })
+hl.workspace_rule({ workspace = "6", monitor = "", persistent = true })
+hl.workspace_rule({ workspace = "7", monitor = "", persistent = true })
+hl.workspace_rule({ workspace = "8", monitor = "", persistent = true })
+hl.workspace_rule({ workspace = "9", monitor = "", persistent = true })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({

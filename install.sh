@@ -161,7 +161,7 @@ echo "Applying stow targets: ${TARGETS[*]}"
 for target in "${TARGETS[@]}"; do
     target="${target%/}"
     echo "  Stowing: $target"
-    if ! stow -- adopt -t ~ "$target"; then
+    if ! stow -t ~ "$target"; then
         print_error "Failed to apply dotfiles for target: $target"
     fi
 done
