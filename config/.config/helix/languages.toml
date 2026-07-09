@@ -2,19 +2,43 @@
 name = "cpp"
 scope = "source.cpp"
 injection-regex = "cpp"
-file-types = ["cc", "hh", "c++", "cpp", "hpp", "h", "ipp", "tpp", "cxx", "hxx", "ixx", "txx", "ino", "C", "H", "cu", "cuh", "cppm", "h++", "ii", "inl", { glob = ".hpp.in" }, { glob = ".h.in" }]
+file-types = [
+  "cc",
+  "hh",
+  "c++",
+  "cpp",
+  "hpp",
+  "h",
+  "ipp",
+  "tpp",
+  "cxx",
+  "hxx",
+  "ixx",
+  "txx",
+  "ino",
+  "C",
+  "H",
+  "cu",
+  "cuh",
+  "cppm",
+  "h++",
+  "ii",
+  "inl",
+  { glob = ".hpp.in" },
+  { glob = ".h.in" },
+]
 comment-token = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
-language-servers = [ "clangd" ]
+language-servers = ["clangd"]
 auto-format = true
 indent = { tab-width = 2, unit = "  " }
 
 [[language]]
 name = "zig"
-language-servers = [ "zls" ]
+language-servers = ["zls"]
 auto-format = true
 
-[language-server.zls.config]
+[language-server.zls.config.zls]
 enable_build_on_save = true
 build_on_save_args = ["check", "-fincremental", "--watch"]
 force_autofix = true
@@ -31,10 +55,15 @@ name = "typst"
 auto-format = true
 formatter.command = "typstyle"
 
-[[language]]
-name = "lua"
-formatter = { command = "stylua", args = [ "-" ] }
-auto-format = true
+[language-server.tinymist]
+command = "tinymist"
+config.exportPdf = "onSave"
+config.preview.background.enabled = true
+config.preview.background.args = [
+  "--data-plane-host=127.0.0.1:0",
+  "--invert-colors=never",
+  "--open",
+]
 
 [[language]]
 name = "slint"
@@ -45,11 +74,4 @@ file-types = ["slint"]
 comment-token = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
 indent = { tab-width = 4, unit = "    " }
-language-servers = [ "slint-lsp" ]
-
-[language-server.tinymist]
-command = "tinymist"
-config.exportPdf = "onSave"
-config.preview.background.enabled = true
-config.preview.background.args = [
-  "--data-plane-host=127.0.0.1:0", "--invert-colors=never", "--open"]
+language-servers = ["slint-lsp"]

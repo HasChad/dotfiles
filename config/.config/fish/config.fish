@@ -39,13 +39,6 @@ if test -d ~/.cargo/bin
     end
 end
 
-# Add ~/.zig to PATH
-if test -d ~/.zig
-    if not contains -- ~/.zig $PATH
-        set -p PATH ~/.zig
-    end
-end
-
 # Add depot_tools to PATH
 if test -d ~/Applications/depot_tools
     if not contains -- ~/Applications/depot_tools $PATH

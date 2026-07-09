@@ -2,7 +2,7 @@
 // https://zed.dev/docs/configuring-zed
 
 {
-    "theme": "GitHub Dark",
+    "theme": "VSCode Dark Modern",
     "icon_theme": "Material Icon Theme",
 
     "buffer_font_family": "Monaspace Krypton",
