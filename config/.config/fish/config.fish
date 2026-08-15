@@ -39,6 +39,13 @@ if test -d ~/.cargo/bin
     end
 end
 
+# Add ~/.zig to PATH
+if test -d ~/.zig
+    if not contains -- ~/.zig $PATH
+        set -p PATH ~/.zig
+    end
+end
+
 # Add depot_tools to PATH
 if test -d ~/Applications/depot_tools
     if not contains -- ~/Applications/depot_tools $PATH
@@ -119,7 +126,7 @@ alias jctl "journalctl -p 3 -xb"
 alias rip "expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 alias grub-update "sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias mirror "sudo cachyos-rate-mirrors" # Get fastest mirrors
-
+alias ff fastfetch
 # Helix commands
 alias helix-binds="bat ~/.config/helix/helix-keybinds.md"
 

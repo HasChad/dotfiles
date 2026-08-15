@@ -72,6 +72,7 @@ $ git remote set-url origin git@github.com:username/repo.git
 
 ## Misc
 For good laptop fan control ``nbfc-linux`` is a good option.  
+Install ``acpi_call-dkms`` to not install new linux kernel
 
 ## Useful Links
 [Walls](https://github.com/dharmx/walls)  

@@ -2,8 +2,16 @@
 // https://zed.dev/docs/configuring-zed
 
 {
-    "theme": "VSCode Dark Modern",
-    "icon_theme": "Material Icon Theme",
+    "theme": {
+        "mode": "dark",
+        "light": "One Light",
+        "dark": "VSCode Dark Modern"
+    },
+    "icon_theme": {
+        "mode": "light",
+        "light": "Material Icon Theme",
+        "dark": "Material Icon Theme"
+    },
 
     "buffer_font_family": "Monaspace Krypton",
     "buffer_line_height": "standard",
