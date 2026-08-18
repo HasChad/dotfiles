@@ -1,4 +1,5 @@
 custom-shader = ~/.config/ghostty/cursor_trail.glsl
+theme = Kitty Default
 
 # Keybinds
 keybind = alt+h=goto_split:up
@@ -29,7 +30,6 @@ background-blur = false
 
 # Scrolling
 scrollback-limit = 10000
-mouse-scroll-multiplier = 3
 
 # Font
 font-size = 11
