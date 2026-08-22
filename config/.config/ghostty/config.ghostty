@@ -1,20 +1,22 @@
 custom-shader = ~/.config/ghostty/cursor_trail.glsl
 theme = Kitty Default
 
+window-inherit-working-directory = false
+
 # Keybinds
-keybind = alt+h=goto_split:up
+keybind = alt+k=goto_split:up
 keybind = alt+j=goto_split:down
-keybind = alt+k=goto_split:left
+keybind = alt+h=goto_split:left
 keybind = alt+l=goto_split:right
 
-keybind = ctrl+alt+h=new_split:up
+keybind = ctrl+alt+k=new_split:up
 keybind = ctrl+alt+j=new_split:down
-keybind = ctrl+alt+k=new_split:left
+keybind = ctrl+alt+h=new_split:left
 keybind = ctrl+alt+l=new_split:right
 
-keybind = shift+alt+h=resize_split:up,10
+keybind = shift+alt+k=resize_split:up,10
 keybind = shift+alt+j=resize_split:down,10
-keybind = shift+alt+k=resize_split:left,50
+keybind = shift+alt+h=resize_split:left,50
 keybind = shift+alt+l=resize_split:right,50
 
 # Window
