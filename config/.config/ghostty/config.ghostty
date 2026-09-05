@@ -9,6 +9,11 @@ keybind = alt+j=goto_split:down
 keybind = alt+h=goto_split:left
 keybind = alt+l=goto_split:right
 
+keybind = alt+up=goto_split:up
+keybind = alt+down=goto_split:down
+keybind = alt+left=goto_split:left
+keybind = alt+right=goto_split:right
+
 keybind = ctrl+alt+k=new_split:up
 keybind = ctrl+alt+j=new_split:down
 keybind = ctrl+alt+h=new_split:left
