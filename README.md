@@ -28,7 +28,7 @@ $ ./install.sh
 - Trenchbroom
 
 <details>
-<summary>Github SSH Key</summary>
+<summary><h2>Github SSH Key</h2></summary>
 
 **1. Generate an SSH key**
 ```sh
