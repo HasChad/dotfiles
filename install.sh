@@ -85,7 +85,8 @@ fi
 # --- Package installs
 if [[ "$PKG_COUNT" -gt 0 ]]; then
     print_header "Installing $PKG_COUNT official packages"
-    package_list "$DOTFILES_DIR/pkglist.txt" | sudo pacman -S --needed - \
+    mapfile -t pkgs < <(package_list "$DOTFILES_DIR/pkglist.txt")
+    sudo pacman -S --needed "${pkgs[@]}" \
         || print_error "Failed to install official packages"
 else
     print_warning "pkglist.txt missing or empty, skipping"
@@ -93,7 +94,8 @@ fi
 
 if [[ "$AUR_COUNT" -gt 0 ]]; then
     print_header "Installing $AUR_COUNT AUR packages"
-    package_list "$DOTFILES_DIR/aurlist.txt" | paru -S --needed - \
+    mapfile -t aur_pkgs < <(package_list "$DOTFILES_DIR/aurlist.txt")
+    paru -S --needed "${aur_pkgs[@]}" \
         || print_error "Failed to install AUR packages"
 else
     print_warning "aurlist.txt missing or empty, skipping"
@@ -104,8 +106,9 @@ if [[ "$FLATPAK_COUNT" -gt 0 ]]; then
     flatpak remote-add --if-not-exists --system \
         flathub https://flathub.org/repo/flathub.flatpakrepo \
         || print_error "Failed to add Flathub remote"
-    package_list "$DOTFILES_DIR/flatpaklist.txt" \
-        | xargs flatpak install --system flathub \
+
+    mapfile -t flatpak_pkgs < <(package_list "$DOTFILES_DIR/flatpaklist.txt")
+    flatpak install --system flathub "${flatpak_pkgs[@]}" \
         || print_error "Failed to install Flathub packages"
 else
     print_warning "flatpaklist.txt missing or empty, skipping"
