@@ -1,186 +1,151 @@
 #!/bin/bash
-set -e # exit if any command fails
+set -euo pipefail # exit on error, undefined var, or failed pipe
 
 # Configuration
-DOTFILES_DIR="${DOTFILES_DIR:-$HOME/dotfiles}"
-STOW_TARGETS="${STOW_TARGETS:-config/}" # you can add new folders with space or comma
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Colors for output
-GREEN='\e[32m'
-PURPLE='\e[35m'
-YELLOW='\e[33m'
-RED='\e[31m'
-NC='\e[0m' # No Color
+# Colors
+GREEN='\e[32m'; PURPLE='\e[35m'; YELLOW='\e[33m'; RED='\e[31m'; NC='\e[0m'
 
-# Helper functions
-print_header() {
-    echo
-    echo -e "${GREEN}--> $1 <--${NC}"
-    echo
-}
+# --- Helpers ---------------------------------------------
+print_header()  { echo -e "\n${GREEN}--> $1 <--${NC}\n"; }
+print_success() { echo -e "${PURPLE}--> $1 <--${NC}"; }
+print_warning() { echo -e "${YELLOW}Warning: $1${NC}"; }
+print_error()   { echo -e "${RED}Error: $1${NC}"; exit 1; }
 
-print_success() {
-    echo -e "${PURPLE}--> $1 <--${NC}"
-}
-
-print_warning() {
-    echo -e "${YELLOW}Warning: $1${NC}"
-}
-
-print_error() {
-    echo -e "${RED}Error: $1${NC}"
-    exit 1
-}
-
+# Returns 0 (yes) / 1 (no)
 confirm_action() {
-    local message="$1"
-    echo -e "${YELLOW}$message${NC}"
-    read -p "Continue? [y/N]: " -n 1 -r
+    echo -e "${YELLOW}$1${NC}"
+    read -p "Continue? [y/N]: " -r
     echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        echo "Aborted by user."
-        exit 0
-    fi
+    [[ $REPLY =~ ^[Yy]$ ]]
 }
 
+require_confirm_or_exit() {
+    confirm_action "$1" || { echo "Aborted by user."; exit 0; }
+}
+
+# Counts non-empty, non-comment lines; never fails (grep -c exits 1 on zero matches)
 count_packages() {
-    local file="$1"
-    if [[ -f "$file" ]]; then
-        grep -c '^[[:space:]]*[^[:space:]]*[^[:space:]]' "$file" 2>/dev/null || echo "0"
+    if [[ -f "$1" ]]; then
+        grep -c '^[[:space:]]*[^[:space:]#]' "$1" || true
     else
-        echo "0"
+        echo 0
     fi
 }
 
-# Welcome message and confirmation
-echo
-echo -e "${PURPLE}=== Arch Linux Setup Script ===${NC}"
-echo
-echo "This script will:"
-echo "  • Update your system"
-echo "  • Install base development tools"
-echo "  • Install $(count_packages pkglist.txt) packages from official repos"
-echo "  • Install paru AUR helper (if needed)"
-echo "  • Install $(count_packages aurlist.txt) packages from AUR"
-echo "  • Apply dotfiles from: $DOTFILES_DIR"
-echo
+# Prints list contents with comments/blank lines stripped; never fails
+package_list() {
+    if [[ -f "$1" ]]; then
+        grep '^[[:space:]]*[^[:space:]#]' "$1" || true
+    fi
+}
 
-confirm_action "This will modify your system and potentially overwrite existing configurations."
+# --- Welcome -------------------------------------------------
+PKG_COUNT=$(count_packages "$DOTFILES_DIR/pkglist.txt")
+AUR_COUNT=$(count_packages "$DOTFILES_DIR/aurlist.txt")
+FLATPAK_COUNT=$(count_packages "$DOTFILES_DIR/flatpaklist.txt")
 
-# Update system
+echo -e "\n${PURPLE}=== Arch Linux Setup Script ===${NC}\n"
+cat <<EOF
+This script will:
+  -> Update your system
+  -> Install base development tools (git, base-devel, stow, flatpak)
+  -> Install paru AUR helper (if needed)
+  -> Install $PKG_COUNT packages from official repos
+  -> Install $AUR_COUNT packages from AUR
+  -> Install $FLATPAK_COUNT packages from Flathub
+  -> Set up the Rust toolchain (if rustup is present)
+  -> Apply dotfiles from: $DOTFILES_DIR
+     (home configs -> ~, system configs -> /)
+
+EOF
+
+require_confirm_or_exit "This will modify your system and potentially overwrite existing configurations."
+
+# --- System update & base tools
 print_header "System update and installing base tools"
+sudo pacman -Syu || print_error "System update failed"
+sudo pacman -S --needed git base-devel stow flatpak || print_error "Failed to install base tools"
 
-if ! sudo pacman -Syu --noconfirm; then
-    print_error "System update failed"
-fi
-
-if ! sudo pacman -S --noconfirm --needed git base-devel stow; then
-    print_error "Failed to install base tools"
-fi
-
-# Install packages from official repos
-if [[ -f pkglist.txt ]]; then
-    pkg_count=$(count_packages pkglist.txt)
-    print_header "Installing $pkg_count packages from official repositories"
-    
-    if ! sudo pacman -S --noconfirm --needed - < pkglist.txt; then
-        print_error "Failed to install some packages from official repositories"
-    fi
+# --- Paru
+if command -v paru &>/dev/null; then
+    echo "paru is already installed, skipping..."
 else
-    print_warning "pkglist.txt not found, skipping official repo packages"
-fi
-
-# Install paru
-if ! command -v paru &>/dev/null; then
-    print_header "Installing Paru"
-    
-    if ! git clone https://aur.archlinux.org/paru.git /tmp/paru; then
-        print_error "Failed to clone paru repository"
-    fi
-    
-    if ! (cd /tmp/paru && makepkg -si --noconfirm); then
+    print_header "Installing paru"
+    git clone https://aur.archlinux.org/paru.git /tmp/paru \
+        || print_error "Failed to clone paru repository"
+    if ! (cd /tmp/paru && makepkg -si); then
+        rm -rf /tmp/paru
         print_error "Failed to build and install paru"
     fi
-    
     rm -rf /tmp/paru
-else
-    echo
-    echo "paru is already installed, skipping..."
 fi
 
-# Install packages from AUR
-if [[ -f aurlist.txt ]]; then
-    aur_count=$(count_packages aurlist.txt)
-    print_header "Installing $aur_count packages from AUR"
-    
-    if ! paru -S --noconfirm --needed - < aurlist.txt; then
-        print_error "Failed to install some AUR packages"
-    fi
+# --- Package installs
+if [[ "$PKG_COUNT" -gt 0 ]]; then
+    print_header "Installing $PKG_COUNT official packages"
+    package_list "$DOTFILES_DIR/pkglist.txt" | sudo pacman -S --needed - \
+        || print_error "Failed to install official packages"
 else
-    print_warning "aurlist.txt not found, skipping AUR packages"
+    print_warning "pkglist.txt missing or empty, skipping"
 fi
 
-# Setup Rust toolchain
-if ! command -v rustc &>/dev/null; then
-    print_header "Setting up Rust toolchain"
-
-    if command -v rustup &>/dev/null; then
-        echo "rustup found, installing stable toolchain..."
-
-        if ! rustup default stable; then
-            print_error "Failed to install Rust stable toolchain"
-        fi
-
-        if ! rustup component add rust-analyzer; then
-            print_error "Failed to install rust-analyzer"
-        fi
-    else
-        print_warning "rustup not found. Install it first with: sudo pacman -S rustup"
-        confirm_action "Continue without Rust?"
-    fi
+if [[ "$AUR_COUNT" -gt 0 ]]; then
+    print_header "Installing $AUR_COUNT AUR packages"
+    package_list "$DOTFILES_DIR/aurlist.txt" | paru -S --needed - \
+        || print_error "Failed to install AUR packages"
 else
-    echo
+    print_warning "aurlist.txt missing or empty, skipping"
+fi
+
+if [[ "$FLATPAK_COUNT" -gt 0 ]]; then
+    print_header "Installing $FLATPAK_COUNT Flathub packages"
+    flatpak remote-add --if-not-exists --system \
+        flathub https://flathub.org/repo/flathub.flatpakrepo \
+        || print_error "Failed to add Flathub remote"
+    package_list "$DOTFILES_DIR/flatpaklist.txt" \
+        | xargs flatpak install --system flathub \
+        || print_error "Failed to install Flathub packages"
+else
+    print_warning "flatpaklist.txt missing or empty, skipping"
+fi
+
+# --- Rust
+if command -v rustc &>/dev/null; then
     echo "Rust is already installed, skipping..."
+elif command -v rustup &>/dev/null; then
+    print_header "Setting up Rust toolchain"
+    rustup default stable || print_error "Failed to install Rust stable toolchain"
+    rustup component add rust-analyzer || print_error "Failed to install rust-analyzer"
+else
+    print_warning "rustup not found. Install it first with: sudo pacman -S rustup"
+    require_confirm_or_exit "Continue without Rust?"
 fi
 
-## STOW
+# --- Stow
 print_header "Applying dotfiles configuration"
 
-# Check if stow target exists
-if [[ ! -d "$DOTFILES_DIR/$STOW_TARGETS" ]]; then
-    print_error "Stow target directory not found: $DOTFILES_DIR/$STOW_TARGETS"
+[[ -d "$DOTFILES_DIR/home" ]]   || print_error "Stow target directory not found: $DOTFILES_DIR/home"
+[[ -d "$DOTFILES_DIR/system" ]] || print_error "Stow target directory not found: $DOTFILES_DIR/system"
+
+if confirm_action "Existing configs will be linked over. Continue?"; then
+    echo "  Stowing: home -> $HOME"
+    stow -d "$DOTFILES_DIR" -t "$HOME" home \
+        || print_error "Failed to apply dotfiles for: home"
+    echo "  Stowing: system -> /"
+    sudo stow -d "$DOTFILES_DIR" -t / system \
+        || print_error "Failed to apply dotfiles for: system"
+else
+    echo "Skipping dotfiles application."
 fi
 
-# Convert space separated targets to array
-IFS=' ,' read -ra TARGETS <<< "$STOW_TARGETS"
-
-# Apply dotfiles
-confirm_action "Stow may overwrite existing configuration files. Continue?"
-
-echo "Applying stow targets: ${TARGETS[*]}"
-for target in "${TARGETS[@]}"; do
-    target="${target%/}"
-    echo "  Stowing: $target"
-    if ! stow -t ~ "$target"; then
-        print_error "Failed to apply dotfiles for target: $target"
-    fi
-done
-
-# Completion message
+# --- Done
 echo
 print_success "SETUP COMPLETE!"
-echo
-echo "Summary:"
-echo "  ✓ System updated"
-echo "  ✓ Base tools installed"
-echo "  ✓ $(count_packages pkglist.txt) official packages installed"
-echo "  ✓ Paru ready"
-echo "  ✓ $(count_packages aurlist.txt) AUR packages installed"
-echo "  ✓ Rust and rust-analyzer installed"
-echo "  ✓ Dotfiles applied"
-echo
+
 echo -e "${YELLOW}Consider rebooting to ensure all changes take effect.${NC}"
-read -p "Reboot now? [y/N]: " -n 1 -r
+read -p "Reboot now? [y/N]: " -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Rebooting in 3 seconds..."

@@ -1,2 +1,2 @@
-atlauncher
+atlauncher-bin
 zen-browser-bin

@@ -1,0 +1,7 @@
+com.usebottles.bottles
+com.github.wwmm.easyeffects
+com.github.tchx84.Flatseal
+it.mijorus.gearlever
+com.heroicgameslauncher.hgl
+dev.vencord.Vesktop
+io.github.flattool.Warehouse

@@ -1,17 +1,18 @@
 # Dotfiles
-This repo contains the dotfiles for my arch linux based system
+This repo contains the dotfiles for my Arch Linux based system. Currently I'm using CachyOS
 
-## What Does it Do?
+## What Does install.sh Do?
 1. Update system
-2. Install packages from official repos using pkglist.txt
-3. Install paru if not already installed
+2. Install Paru, Flatpak and Stow
+3. Install packages from official repos using pkglist.txt
 4. Install packages from AUR using aurlist.txt
-5. Install rust stable toolchain if not already installed
-6. Stow dotfiles
+5. Install packages from Flatpak using flatpaklist.txt
+6. Install rust stable toolchain if not already installed
+7. Stow dotfiles
 
 ## Installation
 ```sh
-$ git clone https://github.com/HasChad/dotfiles ~/dotfiles
+$ git clone https://github.com/HasChad/dotfiles
 $ cd dotfiles
 $ chmod +x install.sh
 $ ./install.sh
@@ -26,8 +27,9 @@ $ ./install.sh
 - Slade
 - Trenchbroom
 
+<details>
+<summary>Github SSH Key</summary>
 
-## Github SSH Key
 **1. Generate an SSH key**
 ```sh
 $ ssh-keygen -t ed25519 -C "your_email@example.com"
@@ -69,6 +71,8 @@ If you already have repos cloned with HTTPS, switch them to SSH:
 $ cd your-repo
 $ git remote set-url origin git@github.com:username/repo.git
 ```
+
+</details>
 
 ## Misc
 For good laptop fan control ``nbfc-linux`` is a good option.  

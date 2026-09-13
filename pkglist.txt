@@ -1,11 +1,9 @@
-alacritty
+ghostty
 fish
 starship
 btop
 lazygit
 helix
-yazi
-zellij
 zoxide
 eza
 fzf
@@ -13,6 +11,7 @@ bat
 stow
 git
 fastfetch
+flatpak
 
 rustup
 cmake
@@ -27,7 +26,6 @@ blender
 
 thunderbird
 qbittorrent
-vesktop
 vlc
 vlc-plugins-all
 strawberry
