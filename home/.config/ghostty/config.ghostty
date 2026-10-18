@@ -1,6 +1,8 @@
 custom-shader = ~/.config/ghostty/cursor_trail.glsl
 theme = Kitty Default
 
+gtk-single-instance = false
+
 window-inherit-working-directory = false
 
 # Keybinds

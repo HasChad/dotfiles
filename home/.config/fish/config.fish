@@ -9,15 +9,11 @@ function prompt_newline --on-event fish_postexec
     echo
 end
 
-alias clear "command clear; commandline -f clear-screen"
+set -Ux EDITOR helix
 
 # Format man pages
 set -x MANROFFOPT -c
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-
-# Set settings for https://github.com/franciscolourenco/done
-set -U __done_min_cmd_duration 10000
-set -U __done_notification_urgency_level low
 
 ## Environment setup
 # Apply .profile: use this to put fish compatible .profile stuff in
@@ -46,48 +42,10 @@ if test -d ~/.zig
     end
 end
 
-# Add depot_tools to PATH
-if test -d ~/Applications/depot_tools
-    if not contains -- ~/Applications/depot_tools $PATH
-        set -p PATH ~/Applications/depot_tools
-    end
-end
-
 # Cmake build shortcut
 function cmake-run
     set exe_name (basename $PWD)
     cmake -B build && cmake --build build && ./build/bin/$exe_name
-end
-
-## Functions
-# Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
-function __history_previous_command
-    switch (commandline -t)
-        case "!"
-            commandline -t $history[1]
-            commandline -f repaint
-        case "*"
-            commandline -i !
-    end
-end
-
-function __history_previous_command_arguments
-    switch (commandline -t)
-        case "!"
-            commandline -t ""
-            commandline -f history-token-search-backward
-        case "*"
-            commandline -i '$'
-    end
-end
-
-if [ "$fish_key_bindings" = fish_vi_key_bindings ]
-
-    bind -Minsert ! __history_previous_command
-    bind -Minsert '$' __history_previous_command_arguments
-else
-    bind ! __history_previous_command
-    bind '$' __history_previous_command_arguments
 end
 
 # Fish command history
@@ -108,6 +66,7 @@ alias lt='eza -aT --color=always --group-directories-first --icons' # tree listi
 alias l.="eza -a | grep -e '^\.'" # show only dotfiles
 
 # Common use
+alias clear "command clear; commandline -f clear-screen"
 alias fixpacman "sudo rm /var/lib/pacman/db.lck"
 alias tarnow "tar -acf "
 alias untar "tar -zxvf "
@@ -128,15 +87,13 @@ alias grub-update "sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias mirror "sudo cachyos-rate-mirrors" # Get fastest mirrors
 alias ff fastfetch
 # Helix commands
-alias helix-binds="bat ~/.config/helix/helix-keybinds.md"
+alias helix-binds "bat ~/.config/helix/helix-keybinds.md"
 
 # Ironwail shortcut
 function ironwail
     cd /mnt/gigadisk/Quake/Ironwail/
     prime-run ./ironwail
 end
-
-alias ase="/mnt/gigadisk/SteamLibrary/steamapps/common/Aseprite/aseprite"
 
 # Zoxide setup
 zoxide init --cmd zd fish | source
