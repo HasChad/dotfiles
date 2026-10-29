@@ -1,5 +1,4 @@
 ghostty
-alacritty
 fish
 starship
 btop

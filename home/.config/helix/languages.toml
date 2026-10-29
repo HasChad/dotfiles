@@ -44,7 +44,7 @@ args = ["--log-level", "debug"]
 
 [language-server.zls.config]
 enable_build_on_save = true
-build_on_save_args = ["check"]
+build_on_save_step = "check"
 force_autofix = true
 warn_style = true
 highlight_global_var_declarations = true
